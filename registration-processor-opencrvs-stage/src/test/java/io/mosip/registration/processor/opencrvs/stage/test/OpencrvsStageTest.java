@@ -11,6 +11,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 import io.mosip.kernel.core.exception.ExceptionUtils;
+import io.mosip.registration.processor.core.abstractverticle.*;
 import io.mosip.registration.processor.opencrvs.stage.OpencrvsStage;
 import org.json.simple.JSONObject;
 import org.junit.Before;
@@ -32,11 +33,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.kernel.core.exception.ServiceError;
-import io.mosip.registration.processor.core.abstractverticle.EventDTO;
-import io.mosip.registration.processor.core.abstractverticle.MessageBusAddress;
-import io.mosip.registration.processor.core.abstractverticle.MessageDTO;
-import io.mosip.registration.processor.core.abstractverticle.MosipEventBus;
-import io.mosip.registration.processor.core.abstractverticle.MosipRouter;
 import io.mosip.registration.processor.core.code.ApiName;
 import io.mosip.registration.processor.core.common.rest.dto.ErrorDTO;
 import io.mosip.registration.processor.core.constant.EventId;
@@ -132,6 +128,16 @@ public class OpencrvsStageTest {
 
 				@Override
 				public void send(MessageBusAddress toAddress, MessageDTO message) {
+
+				}
+
+				@Override
+				public void consumerHealthCheck(Handler<HealthCheckDTO> handler, String s) {
+
+				}
+
+				@Override
+				public void senderHealthCheck(Handler<HealthCheckDTO> handler, String s) {
 
 				}
 			};
